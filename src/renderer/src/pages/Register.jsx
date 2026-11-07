@@ -13,7 +13,7 @@ export default function Register() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        const temp = register(username, password, confirmPass, role, detail)
+        register(username, password, confirmPass, role, detail)
         kosong()
         navigate('/')
     }

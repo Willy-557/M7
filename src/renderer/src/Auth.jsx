@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 
 export const AuthContext = createContext("")
 
-export function Auth({children}) {
+export default function Auth({children}) {
     const [userNow, setUserNow] = useState(null)
     const [dataUser, setDataUser] = useState([])
 
@@ -18,12 +18,15 @@ export function Auth({children}) {
             return
         }
 
-        const cekUser = window.api.loadUser(username, password)
-        if(cekUser) {
-            setUserNow(cekUser)
-        } else {
-            alert("User tidak ditemukan!, harap melakukan register terlebih dahulu")
-        }
+        window.api.cariUser(username, password).then((u) => {
+            if (u != null) {
+                setUserNow(u)
+                return u
+            } else {
+                alert("User tidak ditemukan!, harap melakukan register terlebih dahulu")
+            }
+        })
+
     }
 
     function register(usn, pass, confirmPass, role, detail) {
@@ -65,7 +68,7 @@ export function Auth({children}) {
         window.api.save(temp)
     }
 
-    const auth = {register, login, userNow}
+    const auth = {register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

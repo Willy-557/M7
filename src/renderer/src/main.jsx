@@ -4,11 +4,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import App from './App'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import { Auth } from './Auth'
+import Member from './pages/Member'
+import Trainer from './pages/Trainer'
+import Auth from './Auth'
 
 const router = createBrowserRouter([
   {path:'/', element:<Login /> },
-  {path:'/regis', element:<Register /> }
+  {path:'/regis', element:<Register /> },
+  {path:'/member', element:<Member /> },
+  {path:'/trainer', element:<Trainer /> }
 ])
 
 createRoot(document.getElementById('root')).render(

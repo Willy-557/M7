@@ -1,13 +1,21 @@
-import { Outlet } from 'react-router'
+
+import { useContext } from 'react'
+import { Outlet, useNavigate } from 'react-router'
+import { AuthContext } from '../Auth'
 
 export default function Member() {
+    const {setUserNow} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    function logout() {
+        setUserNow(null)
+        navigate('/')
+    }
+
     return (<>
         <div>
-            <p>Setup Jadwal</p>
-            <p>Incoming Bookings</p>
-            <p>My Programs</p>
-            <p>My Trainings</p>
-        </div>
-        <Outlet></Outlet>
+            <p>Halo</p>
+            <button onClick={logout}>Logout</button>
+        </div>  
     </>)
 }
