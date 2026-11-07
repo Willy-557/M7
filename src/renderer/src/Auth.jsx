@@ -85,7 +85,29 @@ export default function Auth({children}) {
         window.api.save(temp)
     }
 
-    
+    function addProgram(namaTrainer, namaProgram, deskripsiProgram) {
+        const cari = dataProgram.find((e) => e.nama == namaProgram)
+        if (cari) {
+            alert("Nama program harus unik!")
+        } else {
+            const idBaru = dataProgram.length + 1
+            const dataProgramBaru = {
+                id: idBaru,
+                namaPembuatProgram: namaTrainer,
+                namaProgram: namaProgram,
+                deskripsiProgram: deskripsiProgram
+            }
+            const temp = [...dataProgram, dataProgramBaru]
+            setDataProgram(temp)
+            window.api.saveProgram(temp)
+        }
+    }
+
+    function deletePrograms(id) {
+        const temp = dataProgram.filter((e) => e.id != id)
+        setDataProgram(temp)
+        window.api.saveProgram(temp)
+    }
 
     const auth = {deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
