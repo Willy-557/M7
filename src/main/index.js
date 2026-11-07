@@ -2,7 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import fs from 'fs'
+import fs, { readFileSync } from 'fs'
 
 function createWindow() {
   // Create the browser window.
@@ -64,6 +64,14 @@ app.whenReady().then(() => {
 
   ipcMain.handle('loadUser', function() {
     return JSON.parse(fs.readFileSync('./user.json').toString())
+  })
+
+  ipcMain.handle('loadProgram', function() {
+    return JSON.parse(fs,readFileSync('./program.json').toString)
+  })
+
+  ipcMain.handle('savePrograme', function(event, data) {
+    fs.writeFileSync('./program.json', JSON.stringify(data, null, 2))
   })
 
   createWindow()

@@ -1,14 +1,19 @@
 import { createContext, useEffect, useState, useContext } from "react";
+import { data } from "react-router";
 
 export const AuthContext = createContext("")
 
 export default function Auth({children}) {
     const [userNow, setUserNow] = useState(null)
     const [dataUser, setDataUser] = useState([])
+    const [dataProgram, setDataProgram] = useState([])
 
     useEffect(() => {
         window.api.loadUser().then((data) => {
             setDataUser(data)
+        })
+        window.api.loadProgram().then((data) => {
+            setDataProgram(data)
         })
     }, [])
 
@@ -80,7 +85,9 @@ export default function Auth({children}) {
         window.api.save(temp)
     }
 
-    const auth = {simpanJadwalTrainer, register, login, userNow, setUserNow}
+    
+
+    const auth = {deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

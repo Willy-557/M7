@@ -2,6 +2,26 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../Auth"
 
 export default function MyPrograms() {
+    const {deletePrograms, dataProgram, addProgram, userNow} = useContext(AuthContext)
+    const [namaProgram, setNamaProgram] = useState("")
+    const [deskripsiProgram, setDeskripsiProgram] = useState("")
+
+    function handleSubmit(e){
+        if(namaProgram == "" || deskripsiProgram == "") {
+            alert("Semua field wajib diisi!")
+            return
+        }
+
+        e.preventDefault()
+        addProgram(userNow.username, namaProgram, deskripsiProgram)
+        setNamaProgram("")
+        setDeskripsiProgram("")
+    }
+
+    function hapus(id) {
+        deletePrograms(id)
+    }
+    
 
     return (<>
         <h4>Tambah Program Baru</h4>
@@ -18,6 +38,16 @@ export default function MyPrograms() {
                 <th>Deskripsi</th>
                 <th>Action</th>
             </tr>
+            {dataProgram.map((e) => (
+                <tr>
+                    <td>{e.id}</td>
+                    <td>{e.namaProgram}</td>
+                    <td>{e.deskripsiProgram}</td>
+                    <td>
+                        <button onClick={() => hapus(e.id)}>Delete</button>
+                    </td>
+                </tr>
+            ))}
         </table>
     </>)
 }
