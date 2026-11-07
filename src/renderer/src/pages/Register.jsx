@@ -1,19 +1,21 @@
 import { useContext, useState } from "react"
-import { NavLink } from "react-router"
+import { NavLink,useNavigate } from "react-router"
 import { AuthContext } from "../Auth"
 
 export default function Register() {
-    const {register} = useContext(AuthContext)
+    const { register } = useContext(AuthContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
     const [role, setRole] = useState("Member")
     const [detail, setDetail] = useState("")
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
-        register(username, password, confirmPass, role, detail)
+        const temp = register(username, password, confirmPass, role, detail)
         kosong()
+        navigate('/')
     }
 
     function kosong() {

@@ -54,7 +54,7 @@ app.whenReady().then(() => {
   ipcMain.on('ping', () => console.log('pong'))
 
   ipcMain.handle('save', function(event, data) {
-    fs.writeFileSync('./user.json', JSON.stringify(data))
+    fs.writeFileSync('./user.json', JSON.stringify(data, null, 2))
   })
 
   ipcMain.handle('cariUser', function(event, usn, pass) {

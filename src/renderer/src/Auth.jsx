@@ -45,21 +45,23 @@ export function Auth({children}) {
         }
         
         const idBaru = dataUser.length + 1
-        const dataUserBaru = {}
-        {role == "Member" ? dataUserBaru = {
+        let dataUserBaru = {}
+        role == "Member" ? dataUserBaru = {
             "id" : idBaru,
             "username" : usn,
             "password" : pass,
-            "role" : "Member",
+            "role" : role,
             "expiryDate" : detail
         } : dataUserBaru = {
             "id" : idBaru,
             "username" : usn,
             "password" : pass,
-            "role" : "Trainer",
+            "role" : role,
             "Keahlian" : detail
-        }}
-        const temp = setDataUser([...dataUser, dataUserBaru])
+        }
+
+        const temp = [...dataUser, dataUserBaru]
+        setDataUser(temp)
         window.api.save(temp)
     }
 

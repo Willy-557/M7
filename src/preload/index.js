@@ -5,7 +5,7 @@ import { electronAPI } from '@electron-toolkit/preload'
 const api = {
   save : (data) =>  ipcRenderer.invoke('save', data),
   cariUser : (usn, pass) => ipcRenderer.invoke('cariUser', usn, pass),
-  load : () => ipcRenderer.invoke('loadUser')
+  loadUser : () => ipcRenderer.invoke('loadUser')
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
