@@ -67,10 +67,10 @@ app.whenReady().then(() => {
   })
 
   ipcMain.handle('loadProgram', function() {
-    return JSON.parse(fs,readFileSync('./program.json').toString)
+    return JSON.parse(fs.readFileSync('./program.json').toString())
   })
 
-  ipcMain.handle('savePrograme', function(event, data) {
+  ipcMain.handle('saveProgram', function(event, data) {
     fs.writeFileSync('./program.json', JSON.stringify(data, null, 2))
   })
 

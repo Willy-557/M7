@@ -12,8 +12,8 @@ export default function Auth({children}) {
         window.api.loadUser().then((data) => {
             setDataUser(data)
         })
-        window.api.loadProgram().then((data) => {
-            setDataProgram(data)
+        window.api.loadProgram().then((e) => {
+            setDataProgram(e)
         })
     }, [])
 
@@ -86,7 +86,7 @@ export default function Auth({children}) {
     }
 
     function addProgram(namaTrainer, namaProgram, deskripsiProgram) {
-        const cari = dataProgram.find((e) => e.nama == namaProgram)
+        const cari = dataProgram.find((e) => e.namaProgram == namaProgram)
         if (cari) {
             alert("Nama program harus unik!")
         } else {
