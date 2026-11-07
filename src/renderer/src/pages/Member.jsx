@@ -16,6 +16,7 @@ export default function Member() {
         <div>
             <p>Halo</p>
             <button onClick={logout}>Logout</button>
-        </div>  
+        </div> 
+        <Outlet></Outlet> 
     </>)
 }

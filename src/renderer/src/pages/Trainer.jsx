@@ -20,5 +20,6 @@ export default function Trainer() {
             <p>My Trainings</p>
             <button onClick={logout}>Logout</button>
         </div>
+        <Outlet></Outlet>
     </>)
 }
