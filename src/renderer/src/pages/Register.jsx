@@ -1,14 +1,27 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { NavLink } from "react-router"
+import { AuthContext } from "../Auth"
 
 export default function Register() {
+    const {register} = useContext(AuthContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
     const [role, setRole] = useState("Member")
+    const [detail, setDetail] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
+        register(username, password, confirmPass, role, detail)
+        kosong()
+    }
+
+    function kosong() {
+        setConfirmPass("")
+        setDetail("")
+        setPassword("")
+        setRole("")
+        setUsername("")
     }
 
     return (<>
@@ -35,12 +48,12 @@ export default function Register() {
                 </select> <br /><br />
                 {role == "Member" ? (<>
                     Expiry Date:
-                    <input type="date" value={password} onChange={(e) => setPassword(e.target.value)} 
+                    <input type="date" value={detail} onChange={(e) => setDetail(e.target.value)} 
                         style={{width: '100%', marginTop:'3px'}}
                     />
                 </>) : (<>
                     Keahlian:
-                    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} 
+                    <input type="text" value={detail} onChange={(e) => setDetail(e.target.value)} 
                         style={{width: '100%', marginTop:'3px'}}
                     />
                 </>)}
