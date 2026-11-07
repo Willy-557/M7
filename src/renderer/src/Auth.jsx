@@ -60,7 +60,10 @@ export default function Auth({children}) {
             "username" : usn,
             "password" : pass,
             "role" : role,
-            "Keahlian" : detail
+            "Keahlian" : detail,
+            "jamMulai" : "",
+            "jamSelesai" : "",
+            "hariKerja" : []
         }
 
         const temp = [...dataUser, dataUserBaru]
@@ -68,7 +71,16 @@ export default function Auth({children}) {
         window.api.save(temp)
     }
 
-    const auth = {register, login, userNow, setUserNow}
+    function simpanJadwalTrainer(id, jamMulai, jamSelesai, hariKerja) {
+        const temp = dataUser.map((e) => e.id === id ? 
+            {...e, jamMulai: jamMulai, jamSelesai: jamSelesai, hariKerja: hariKerja} : e
+        )
+        setDataUser(temp)
+        setUserNow({ ...userNow, jamMulai, jamSelesai, hariKerja })
+        window.api.save(temp)
+    }
+
+    const auth = {simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

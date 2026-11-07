@@ -18,6 +18,13 @@
     "username": "tes",
     "password": "123",
     "role": "Trainer",
-    "Keahlian": "tidur"
+    "Keahlian": "tidur",
+    "jamMulai": "06:40",
+    "jamSelesai": "19:40",
+    "hariKerja": [
+      "Selasa",
+      "Jumat",
+      "Rabu"
+    ]
   }
 ]
