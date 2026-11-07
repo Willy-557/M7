@@ -11,9 +11,9 @@ export default function Login() {
     useEffect(() => {
         if (userNow != null) {
             if (userNow.role == "Member") {
-                navigate('/member')
+                navigate('/app/member')
             } else {
-                navigate('/trainer')
+                navigate('/app/trainer')
             }
         }
     }, [userNow])

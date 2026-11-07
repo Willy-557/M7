@@ -20,18 +20,20 @@ const router = createBrowserRouter([
   {path:'/', element:<Login /> },
   {path:'/regis', element:<Register /> },
   {path:'/app', element:<App/>, children: [
-    {path:'/member', element:<Member />, children : [
-    {path:'listtrainer', element:<ListTrainer/>},
-    {path:'booksession', element:<BookSession/>},
-    {path:'mybooks', element:<MyBookings/>},
-    {path:'mytrainsM', element:<MyTrainingsM/>}
-  ] },
-  {path:'/trainer', element:<Trainer />, children : [
-    {path:'setup', element:<SetupJadwal/>},
-    {path:'incomingbooks', element:<IncomingBookings/>},
-    {path:'myprograms', element:<MyPrograms/>},
-    {path:'mytrainsT', element:<MyTrainingT/>}
-  ] }
+    {path:'member', element:<Member />, children: [
+      {path:'listtrainer', element:<ListTrainer/>},
+      {path:'booksession', element:<BookSession/>},
+      {path:'mybooks', element:<MyBookings/>},
+      {path:'mytrainsM', element:<MyTrainingsM/>}
+    ] 
+    },
+    {path:'trainer', element:<Trainer />, children: [
+        {path:'setup', element:<SetupJadwal/>},
+        {path:'incomingbooks', element:<IncomingBookings/>},
+        {path:'myprograms', element:<MyPrograms/>},
+        {path:'mytrainsT', element:<MyTrainingT/>}
+      ] 
+    }
   ]}
 ])
 
