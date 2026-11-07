@@ -7,8 +7,10 @@ export function Auth({children}) {
     const [dataUser, setDataUser] = useState([])
 
     useEffect(() => {
-        window.api.loadData
-    })
+        window.api.loadUser().then((data) => {
+            setDataUser(data)
+        })
+    }, [])
 
     function login(username, password) {
         if (username == "" || password == "") {

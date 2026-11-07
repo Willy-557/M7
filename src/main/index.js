@@ -54,12 +54,16 @@ app.whenReady().then(() => {
   ipcMain.on('ping', () => console.log('pong'))
 
   ipcMain.handle('save', function(event, data) {
-    fs.writeFileSync('./member.json', JSON.stringify(data))
+    fs.writeFileSync('./user.json', JSON.stringify(data))
   })
 
   ipcMain.handle('cariUser', function(event, usn, pass) {
-    const temp = JSON.parse(fs.readFileSync('./member.json').toString())
+    const temp = JSON.parse(fs.readFileSync('./user.json').toString())
     return temp.find((e) => e.username === usn && e.password === pass)
+  })
+
+  ipcMain.handle('loadUser', function() {
+    return JSON.parse(fs.readFileSync('./user.json').toString())
   })
 
   createWindow()
