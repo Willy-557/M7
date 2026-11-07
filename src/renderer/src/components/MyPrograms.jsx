@@ -38,7 +38,7 @@ export default function MyPrograms() {
                 <th>Deskripsi</th>
                 <th>Action</th>
             </tr>
-            {dataProgram.map((e) => (
+            {dataProgram.map((e) => e.namaPembuatProgram == userNow.username ? 
                 <tr>
                     <td>{e.id}</td>
                     <td>{e.namaProgram}</td>
@@ -47,7 +47,8 @@ export default function MyPrograms() {
                         <button onClick={() => hapus(e.id)}>Delete</button>
                     </td>
                 </tr>
-            ))}
+            : <div></div>
+            )}
         </table>
     </>)
 }
