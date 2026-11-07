@@ -6,6 +6,10 @@ export function Auth({children}) {
     const [userNow, setUserNow] = useState(null)
     const [dataUser, setDataUser] = useState([])
 
+    useEffect(() => {
+        window.api.loadData
+    })
+
     function login(username, password) {
         if (username == "" || password == "") {
             alert("Field tidak boleh kosong!")
@@ -38,13 +42,16 @@ export function Auth({children}) {
             return
         }
         
+        const idBaru = dataUser.length + 1
         const dataUserBaru = {}
         {role == "Member" ? dataUserBaru = {
+            "id" : idBaru,
             "username" : usn,
             "password" : pass,
             "role" : "Member",
             "expiryDate" : detail
         } : dataUserBaru = {
+            "id" : idBaru,
             "username" : usn,
             "password" : pass,
             "role" : "Trainer",
