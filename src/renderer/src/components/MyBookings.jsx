@@ -5,7 +5,7 @@ export default function MyBookings() {
     const {dataBooking, userNow} = useContext(AuthContext)
     return (<>
         <h4>Daftar Booking Saya</h4>
-        <table>
+        <table border={1} cellSpacing={0}>
             <tr>
                 <th>ID</th>
                 <th>Program</th>

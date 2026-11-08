@@ -123,7 +123,7 @@ export default function Auth({children}) {
         const durasiKeMenit = durasiBooking * 60
         
         const cariTrainer = dataUser.find((e) => e.username === namaTrainer)
-        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username)
+        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking)
 
         const mulai = jamKeMenit(jamBooking)
         const selesai = mulai + durasiKeMenit
@@ -147,7 +147,7 @@ export default function Auth({children}) {
             "hari" : hariBooking,
             "pembuat" : pembuatBooking,
             "jamMulai" : jamBooking,
-            "jamSelesai" : menitKeJam(jamKeMenit(selesai)),
+            "jamSelesai" : menitKeJam(selesai),
             "status" : "Pending"
         }
 
