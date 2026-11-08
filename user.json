@@ -26,5 +26,12 @@
       "Jumat",
       "Rabu"
     ]
+  },
+  {
+    "id": 4,
+    "username": "c",
+    "password": "123",
+    "role": "Member",
+    "expiryDate": "2027-11-05"
   }
 ]

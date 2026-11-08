@@ -17,10 +17,10 @@ export default function Member() {
     return (<>
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '10px'}}>
-                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'listtrainer'}>List Trainer</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'booksession'}>Book Session</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'mybooks'}>My Bookings</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'mytrainsM'}>My Trainings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? 'expired' : 'listtrainer'}>List Trainer</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? 'expired' : 'booksession'}>Book Session</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? 'expired' : 'mybooks'}>My Bookings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? 'expired' : 'mytrainsM'}>My Trainings</NavLink>
             </div>
             <button onClick={logout}>Logout</button>
         </div>

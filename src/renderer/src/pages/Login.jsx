@@ -11,11 +11,7 @@ export default function Login() {
     useEffect(() => {
         if (userNow != null) {
             if (userNow.role == "Member") {
-                if (userNow.expiryDate < new Date().toLocaleDateString("en-CA")) {
-                    navigate('/app/expired')
-                } else {
-                    navigate('/app/member')
-                }
+                navigate('/app/member')
             } else {
                 navigate('/app/trainer')
             }

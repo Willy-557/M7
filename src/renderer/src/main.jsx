@@ -25,15 +25,15 @@ const router = createBrowserRouter([
       {path:'listtrainer', element:<ListTrainer/>},
       {path:'booksession', element:<BookSession/>},
       {path:'mybooks', element:<MyBookings/>},
-      {path:'mytrainsM', element:<MyTrainingsM/>}
+      {path:'mytrainsM', element:<MyTrainingsM/>},
+      {path:'expired', element:<Expired/>}
     ] 
     },
     {path:'trainer', element:<Trainer />, children: [
         {path:'setup', element:<SetupJadwal/>},
         {path:'incomingbooks', element:<IncomingBookings/>},
         {path:'myprograms', element:<MyPrograms/>},
-        {path:'mytrainsT', element:<MyTrainingT/>},
-        {path:'expired', element:<Expired/>}
+        {path:'mytrainsT', element:<MyTrainingT/>}
       ] 
     }
   ]}
