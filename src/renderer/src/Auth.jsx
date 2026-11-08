@@ -166,9 +166,15 @@ export default function Auth({children}) {
         const m = menit % 60
         return `${jam < 10 ? "0" + jam : jam}:${m < 10 ? "0" + m : m}`
     }
+
+    function deleteBooking(id) {
+        const temp = dataBooking.filter((e) => e.id != id)
+        setDataBooking(temp)
+        window.api.saveBooking(temp)
+    }
     
 
-    const auth = {dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { AuthContext } from "../Auth"
 
 export default function MyBookings() {
-    const {dataBooking, userNow} = useContext(AuthContext)
+    const {dataBooking, userNow, deleteBooking} = useContext(AuthContext)
     return (<>
         <h4>Daftar Booking Saya</h4>
         <table border={1} cellSpacing={0}>
@@ -32,7 +32,7 @@ export default function MyBookings() {
                     </td>
                     }
                     <td>
-                        <button>Hapus</button>
+                        <button onClick={() => deleteBooking(f.id)}>Hapus</button>
                     </td>
                 </tr>
             ))
