@@ -108,8 +108,8 @@ export default function Auth({children}) {
         window.api.saveProgram(temp)
     }
 
-    function addBooking(pembuatBookingan, durasiBooking, jamBooking, ) {
-
+    function addBooking(detailBookingan, durasiBooking, jamBooking, hariBooking, pembuatBooking) {
+        
     }
 
     const auth = {dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}

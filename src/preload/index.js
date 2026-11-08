@@ -7,7 +7,9 @@ const api = {
   cariUser : (usn, pass) => ipcRenderer.invoke('cariUser', usn, pass),
   loadUser : () => ipcRenderer.invoke('loadUser'),
   loadProgram: () => ipcRenderer.invoke('loadProgram'),
-  saveProgram : (data) => ipcRenderer.invoke('saveProgram', data)
+  saveProgram : (data) => ipcRenderer.invoke('saveProgram', data),
+  saveBooking : (data) => ipcRenderer.invoke('saveBooking', data),
+  loadBooking : () => ipcRenderer.invoke('loadBooking')
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

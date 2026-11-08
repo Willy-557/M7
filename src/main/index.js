@@ -74,6 +74,14 @@ app.whenReady().then(() => {
     fs.writeFileSync('./program.json', JSON.stringify(data, null, 2))
   })
 
+  ipcMain.handle('loadBooking', function() {
+    return JSON.parse(fs.readFileSync('./booking.json').toString())
+  })
+
+  ipcMain.handle('saveBooking', function(event, data) {
+    fs.writeFileSync('./booking.json', JSON.stringify(data, null, 2))
+  })
+
   createWindow()
 
   app.on('activate', function () {
