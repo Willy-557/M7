@@ -182,6 +182,14 @@ export default function Auth({children}) {
         setDataBooking(temp)
         window.api.saveBooking(temp)
     }
+
+    function perpanjangMember(id) {
+        const cariUser = dataUser.find((e) => e.id == id)
+        const [tahun, bulan, hari] = cariUser.expiryDate.split("-")
+        const tahunTerbaru = Number(tahun) + 1
+        const temp = dataUser.map((f) => f.id == id ? {...f, expiryDate: `${tahunTerbaru}-${bulan}-${hari}`} : f)
+        setDataUser(temp)
+        window.api.save(temp)    }
     
 
     const auth = {accBooking, deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
