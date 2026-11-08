@@ -12,8 +12,8 @@ export default function Expired() {
     }
 
     return (<>
-        <div style={{border:'1px solid red', color:'red'}}>
-            <h4>Membership Kadaluwarsa!</h4>
+        <div style={{border:'1px solid red', color:'red', padding:'10px', margin:'10px 10px'}}>
+            <h3>Membership Kadaluwarsa!</h3>
             <p>Masa aktif keanggotaan Anda berakhir pada: <b>{userNow.expiryDate}</b></p>
             <button onClick={perpanjang}>Perpanjang Membership Sekarang</button>
         </div>

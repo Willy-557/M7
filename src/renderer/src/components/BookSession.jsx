@@ -23,30 +23,32 @@ export default function BookSession() {
     }
 
     return (<>
-        <h4>Buat Booking Session Training</h4>
-        <form onSubmit={handleSubmit}>
-            <p>Pilih Trainer</p>
-            <select value={pilihan} onChange={(e) => setPilihan(e.target.value)}>
-                <option value="">testing</option>
-                {dataUser.map((e) => 
-                    dataProgram.filter((d) => d.namaPembuatProgram == e.username).map((f) => (
-                        <option key={f.id} value={`${f.namaPembuatProgram}:${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
-                    ))
-                )}
-            </select><br />
-            Hari:
-            <select value={hari} onChange={(e) => setHari(e.target.value)}>
-                {dataUser.filter((e) => e.role === "Trainer").map((e) => 
-                    e.hariKerja.map((f) => (
-                        <option key={f} value={f}>{f}</option>
-                    ))
-                )}
-            </select><br />
-            Jam:
-            <input type="time" value={jamTraining} onChange={(e) => setJamTraining(e.target.value)} /> <br />
-            Durasi:
-            <input type="number" value={durasi} onChange={(e) => setDurasi(e.target.value)} /> <br />
-            <button type="submit">Submit Booking</button>
-        </form>
+        <div className="kiri">
+            <h3>Buat Booking Session Training</h3>
+            <form className="form-booking" onSubmit={handleSubmit}>
+                <p>Pilih Trainer</p>
+                <select value={pilihan} onChange={(e) => setPilihan(e.target.value)}>
+                    <option value="">testing</option>
+                    {dataUser.map((e) => 
+                        dataProgram.filter((d) => d.namaPembuatProgram == e.username).map((f) => (
+                            <option key={f.id} value={`${f.namaPembuatProgram}:${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
+                        ))
+                    )}
+                </select><br /><br />
+                Hari: <br />
+                <select value={hari} onChange={(e) => setHari(e.target.value)}>
+                    {dataUser.filter((e) => e.role === "Trainer").map((e) => 
+                        e.hariKerja.map((f) => (
+                            <option key={f} value={f}>{f}</option>
+                        ))
+                    )}
+                </select><br /><br />
+                Jam: <br />
+                <input type="time" value={jamTraining} onChange={(e) => setJamTraining(e.target.value)} /> <br />
+                Durasi: <br /><br />
+                <input type="number" value={durasi} onChange={(e) => setDurasi(e.target.value)} /> <br /><br />
+                <button type="submit">Submit Booking</button>
+            </form>
+        </div>
     </>)
 }

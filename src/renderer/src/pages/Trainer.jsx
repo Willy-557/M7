@@ -13,8 +13,8 @@ export default function Trainer() {
     }
 
     return (<>
-        <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-            <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '10px'}}>
+        <div style={{display:'flex', backgroundColor:'lightgray', padding: '12px',justifyContent:'space-between', alignItems:'center'}}>
+            <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '25px'}}>
                 <NavLink style={{color:'black', textDecoration:'none'}} to='setup'>Setup Jadwal</NavLink>
                 <NavLink style={{color:'black', textDecoration:'none'}} to='incomingbooks'>Incoming Bookings</NavLink>
                 <NavLink style={{color:'black', textDecoration:'none'}} to='myprograms'>My Programs</NavLink>
@@ -22,7 +22,8 @@ export default function Trainer() {
             </div>
             <button onClick={logout}>Logout</button>
         </div>
-        <p>Welcome, {userNow.username}</p>
+        <p style={{fontSize:'27px', marginLeft:'10px', marginTop:'20px'}}>Welcome, <b>{userNow.username}</b></p>
+        <br />
         <Outlet></Outlet>
     </>)
 }
