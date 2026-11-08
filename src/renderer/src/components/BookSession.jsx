@@ -30,7 +30,7 @@ export default function BookSession() {
                 <option value="">testing</option>
                 {dataUser.map((e) => 
                     dataProgram.filter((d) => d.namaPembuatProgram == e.username).map((f) => (
-                        <option key={f.id} value={`${f.namaPembuatProgram} ${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
+                        <option key={f.id} value={`${f.namaPembuatProgram}:${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
                     ))
                 )}
             </select><br />
