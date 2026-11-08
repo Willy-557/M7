@@ -15,6 +15,9 @@ export default function Auth({children}) {
         window.api.loadProgram().then((e) => {
             setDataProgram(e)
         })
+        window.api.loadBooking().then((e) => {
+            setDataBooking(e)
+        })
     }, [])
 
     function login(username, password) {
@@ -132,7 +135,7 @@ export default function Auth({children}) {
             const cekBentrok = jadwalTrainingUser.filter((e) => mulai < jamKeMenit(e.jamSelesai) && selesai > jamKeMenit(e.jamMulai))
 
             if (cekBentrok.length > 0) {
-                alert("Jadwal bentrok dengan training lain")
+                alert("Jam booking bentrok dengan training lain")
                 return
             }
         }
@@ -144,9 +147,10 @@ export default function Auth({children}) {
             "hari" : hariBooking,
             "pembuat" : pembuatBooking,
             "jamMulai" : jamBooking,
-            "jamSelesai" : menitKeJam(jamKeMenit(selesai))
+            "jamSelesai" : menitKeJam(jamKeMenit(selesai)),
+            "status" : "Pending"
         }
-        
+
         const temp = [...dataBooking, dataBookingBaru]
         setDataBooking(temp)
         window.api.saveBooking(temp)
@@ -164,7 +168,7 @@ export default function Auth({children}) {
     }
     
 
-    const auth = {addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../Auth"
 
 export default function BookSession() {
-    const {dataUser, userNow, dataProgram} = useContext(AuthContext)
+    const {dataUser, userNow, dataProgram, addBooking} = useContext(AuthContext)
 
     const [durasi, setDurasi] = useState(0)
     const [pilihan, setPilihan] = useState("")
@@ -11,7 +11,7 @@ export default function BookSession() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        
+        addBooking(pilihan, durasi, jamTraining, hari, userNow.username)
         kosong()
     }
 
