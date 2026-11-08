@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import { data } from "react-router";
 
 export const AuthContext = createContext("")
 
@@ -109,7 +108,7 @@ export default function Auth({children}) {
         window.api.saveProgram(temp)
     }
 
-    const auth = {deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}
