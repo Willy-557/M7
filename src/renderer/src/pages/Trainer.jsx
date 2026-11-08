@@ -15,10 +15,10 @@ export default function Trainer() {
     return (<>
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '10px'}}>
-                <NavLink to='setup'>Setup Jadwal</NavLink>
-                <NavLink to='incomingbooks'>Incoming Bookings</NavLink>
-                <NavLink to='myprograms'>My Programs</NavLink>
-                <NavLink to='mytrainsT'>My Trainings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='setup'>Setup Jadwal</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='incomingbooks'>Incoming Bookings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='myprograms'>My Programs</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='mytrainsT'>My Trainings</NavLink>
             </div>
             <button onClick={logout}>Logout</button>
         </div>

@@ -15,10 +15,10 @@ export default function Member() {
     return (<>
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '10px'}}>
-                <NavLink to='listtrainer'>List Trainer</NavLink>
-                <NavLink to='booksession'>Book Session</NavLink>
-                <NavLink to='mybooks'>My Bookings</NavLink>
-                <NavLink to='mytrainsM'>My Trainings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='listtrainer'>List Trainer</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='booksession'>Book Session</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='mybooks'>My Bookings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to='mytrainsM'>My Trainings</NavLink>
             </div>
             <button onClick={logout}>Logout</button>
         </div>
