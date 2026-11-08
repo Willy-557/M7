@@ -117,13 +117,34 @@ export default function Auth({children}) {
 
         const idBaru = dataBooking.length + 1
         const [namaTrainer, programTrainer] = detailBookingan.split(":")
+        const durasiKeMenit = durasiBooking * 60
+        
+        const cariTrainer = dataUser.find((e) => e.username === namaTrainer)
+        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username)
+
+        const mulai = jamKeMenit(jamBooking)
+        const selesai = mulai + durasiKeMenit
+
+        if (mulai < jamKeMenit(cariTrainer.jamMulai) || selesai > jamKeMenit(cariTrainer.jamSelesai)) {
+            alert("Jam booking di luar jadwal trainer")
+            return
+        } else {
+            const cekBentrok = jadwalTrainingUser.filter((e) => mulai < jamKeMenit(e.jamSelesai) && selesai > jamKeMenit(e.jamMulai))
+
+            if (cekBentrok.length > 0) {
+                alert("Jadwal bentrok dengan training lain")
+                return
+            }
+        }
+
         const dataBookingBaru = {
             "id" : idBaru,
             "trainer" : namaTrainer,
             "program" : programTrainer,
             "hari" : hariBooking,
             "pembuat" : pembuatBooking,
-            "jam" :  
+            "jamMulai" : jamBooking,
+            "jamSelesai" : jamKeMenit(selesai)
         }
     }
 
@@ -138,6 +159,15 @@ export default function Auth({children}) {
         return `${jam < 10 ? "0" + jam : jam}:${m < 10 ? "0" + m : m}`
     }
 
+    function ambilJam(waktu) {
+        const [jam, menit] = waktu.split(":")
+        return jam
+    }
+
+    function ambilMenit(waktu) {
+        const [jam, menit] = waktu.split(":")
+        return menit
+    }
     
 
     const auth = {dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
