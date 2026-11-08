@@ -1,4 +1,8 @@
+import { useContext } from "react"
+import { AuthContext } from "../Auth"
+
 export default function MyTrainingsM() {
+    const {dataBooking, deleteBooking, userNow} = useContext(AuthContext)
     return (<>
         <h4>Daftar Booking Saya</h4>
         <table border={1} cellSpacing={0}>
