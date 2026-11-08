@@ -174,9 +174,17 @@ export default function Auth({children}) {
         setDataBooking(temp)
         window.api.saveBooking(temp)
     }
+
+    function accBooking(status, id) {
+        const temp = dataBooking.map((e) => (
+                e.id == id ? {...e, status: status == "Approve" ? "Approve" : "Reject"} : e
+            ))
+        setDataBooking(temp)
+        window.api.saveBooking(temp)
+    }
     
 
-    const auth = {deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {accBooking, deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}
