@@ -189,10 +189,11 @@ export default function Auth({children}) {
         const tahunTerbaru = Number(tahun) + 1
         const temp = dataUser.map((f) => f.id == id ? {...f, expiryDate: `${tahunTerbaru}-${bulan}-${hari}`} : f)
         setDataUser(temp)
-        window.api.save(temp)    }
-    
+        setUserNow({ ...userNow, expiryDate: `${tahunTerbaru}-${bulan}-${hari}` })
+        window.api.save(temp)    
+    }
 
-    const auth = {accBooking, deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {perpanjangMember, accBooking, deleteBooking, dataBooking, addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}

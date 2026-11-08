@@ -15,6 +15,7 @@ import MyPrograms from './components/MyPrograms'
 import MyTrainingT from './components/MyTrainingT'
 import MyTrainingsM from './components/MyTrainingsM'
 import SetupJadwal from './components/SetupJadwal'
+import Expired from './pages/Expired'
 
 const router = createBrowserRouter([
   {path:'/', element:<Login /> },
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
         {path:'setup', element:<SetupJadwal/>},
         {path:'incomingbooks', element:<IncomingBookings/>},
         {path:'myprograms', element:<MyPrograms/>},
-        {path:'mytrainsT', element:<MyTrainingT/>}
+        {path:'mytrainsT', element:<MyTrainingT/>},
+        {path:'expired', element:<Expired/>}
       ] 
     }
   ]}

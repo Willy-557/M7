@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { AuthContext } from './Auth'
 
 export default function App() {
-  const {userNow} = useContext(AuthContext)
+  const {} = useContext(AuthContext)
   return (
     <>
       <Outlet></Outlet>

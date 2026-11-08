@@ -12,13 +12,15 @@ export default function Member() {
         navigate('/')
     }
 
+    const expired = userNow.expiryDate < new Date().toLocaleDateString("en-CA")
+
     return (<>
         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '10px'}}>
-                <NavLink style={{color:'black', textDecoration:'none'}} to='listtrainer'>List Trainer</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to='booksession'>Book Session</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to='mybooks'>My Bookings</NavLink>
-                <NavLink style={{color:'black', textDecoration:'none'}} to='mytrainsM'>My Trainings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'listtrainer'}>List Trainer</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'booksession'}>Book Session</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'mybooks'}>My Bookings</NavLink>
+                <NavLink style={{color:'black', textDecoration:'none'}} to={expired? '/app/expired' : 'mytrainsM'}>My Trainings</NavLink>
             </div>
             <button onClick={logout}>Logout</button>
         </div>
