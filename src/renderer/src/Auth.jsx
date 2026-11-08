@@ -124,6 +124,7 @@ export default function Auth({children}) {
         
         const cariTrainer = dataUser.find((e) => e.username === namaTrainer)
         const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking)
+        const cariProgram = dataProgram.find((e) => e.namaProgram == programTrainer)
 
         const mulai = jamKeMenit(jamBooking)
         const selesai = mulai + durasiKeMenit
@@ -144,6 +145,7 @@ export default function Auth({children}) {
             "id" : idBaru,
             "trainer" : namaTrainer,
             "program" : programTrainer,
+            "deskripsiProgram" : cariProgram.deskripsiProgram,
             "hari" : hariBooking,
             "pembuat" : pembuatBooking,
             "jamMulai" : jamBooking,
