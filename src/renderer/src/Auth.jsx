@@ -144,8 +144,12 @@ export default function Auth({children}) {
             "hari" : hariBooking,
             "pembuat" : pembuatBooking,
             "jamMulai" : jamBooking,
-            "jamSelesai" : jamKeMenit(selesai)
+            "jamSelesai" : menitKeJam(jamKeMenit(selesai))
         }
+        
+        const temp = [...dataBooking, dataBookingBaru]
+        setDataBooking(temp)
+        window.api.saveBooking(temp)
     }
 
     function jamKeMenit(waktu) {
@@ -158,19 +162,9 @@ export default function Auth({children}) {
         const m = menit % 60
         return `${jam < 10 ? "0" + jam : jam}:${m < 10 ? "0" + m : m}`
     }
-
-    function ambilJam(waktu) {
-        const [jam, menit] = waktu.split(":")
-        return jam
-    }
-
-    function ambilMenit(waktu) {
-        const [jam, menit] = waktu.split(":")
-        return menit
-    }
     
 
-    const auth = {dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
+    const auth = {addBooking, dataUser, deletePrograms, dataProgram, addProgram, simpanJadwalTrainer, register, login, userNow, setUserNow}
     
     return <AuthContext.Provider value={auth}>
         {children}
