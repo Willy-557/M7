@@ -108,9 +108,13 @@ export default function Auth({children}) {
     }
 
     function deletePrograms(id) {
+        const program = dataProgram.find((e) => e.id == id)
         const temp = dataProgram.filter((e) => e.id != id)
+        const tempBooking = dataBooking.filter((e) => e.trainer != program.namaPembuatProgram && e.program != program.namaProgram)
         setDataProgram(temp)
+        setDataBooking(tempBooking)
         window.api.saveProgram(temp)
+        window.api.saveBooking(tempBooking)
     }
 
     function addBooking(detailBookingan, durasiBooking, jamBooking, hariBooking, pembuatBooking) {
@@ -186,11 +190,11 @@ export default function Auth({children}) {
 
     function perpanjangMember(id) {
         const cariUser = dataUser.find((e) => e.id == id)
-        const [tahun, bulan, hari] = cariUser.expiryDate.split("-")
-        const tahunTerbaru = Number(tahun) + 1
-        const temp = dataUser.map((f) => f.id == id ? {...f, expiryDate: `${tahunTerbaru}-${bulan}-${hari}`} : f)
+        const [tahun, bulan, hari] = new Date().toLocaleDateString("en-CA").split("-")
+        const tanggalBaru = `${Number(tahun) + 1}-${bulan}-${hari}`
+        const temp = dataUser.map((f) => f.id == id ? {...f, expiryDate: tanggalBaru} : f)
         setDataUser(temp)
-        setUserNow({ ...userNow, expiryDate: `${tahunTerbaru}-${bulan}-${hari}` })
+        setUserNow({ ...userNow, expiryDate: tanggalBaru})
         window.api.save(temp)    
     }
 

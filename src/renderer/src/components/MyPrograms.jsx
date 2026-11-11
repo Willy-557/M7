@@ -7,12 +7,12 @@ export default function MyPrograms() {
     const [deskripsiProgram, setDeskripsiProgram] = useState("")
 
     function handleSubmit(e){
+        e.preventDefault()
         if(namaProgram == "" || deskripsiProgram == "") {
             alert("Semua field wajib diisi!")
             return
         }
-
-        e.preventDefault()
+        
         addProgram(userNow.username, namaProgram, deskripsiProgram)
         setNamaProgram("")
         setDeskripsiProgram("")
