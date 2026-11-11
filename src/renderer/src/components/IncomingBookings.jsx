@@ -23,8 +23,8 @@ export default function IncomingBookings() {
                         <td>{f.hari}</td>
                         <td>{f.jamMulai} - {f.jamSelesai}</td>
                         <td>
-                            <button onClick={() => accBooking("Approve", f.id)}>Approve</button>
-                            <button onClick={() => accBooking("Reject", f.id)}>Reject</button>
+                            <button onClick={() => accBooking("Approved", f.id)}>Approve</button>
+                            <button onClick={() => accBooking("Rejected", f.id)}>Reject</button>
                         </td>
                     </tr>
                 ))

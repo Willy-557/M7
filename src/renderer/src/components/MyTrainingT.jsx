@@ -15,7 +15,7 @@ export default function MyTrainingsT() {
                     <th>Jam</th>
                     <th>Action</th>
                 </tr>
-                {dataBooking.filter((e) => e.trainer == userNow.username && e.status === "Approve").map((f) => (
+                {dataBooking.filter((e) => e.trainer == userNow.username && e.status === "Approved").map((f) => (
                     <tr>
                         <td>{f.id}</td>
                         <td>{f.pembuat}</td>

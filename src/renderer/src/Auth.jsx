@@ -132,7 +132,7 @@ export default function Auth({children}) {
             alert("Trainer belum mengatur jadwal")
             return
         }
-        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking && e.status != "Reject")
+        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking && e.status != "Rejected")
         const cariProgram = dataProgram.find((e) => e.namaProgram == programTrainer)
 
         const mulai = jamKeMenit(jamBooking)
@@ -186,7 +186,7 @@ export default function Auth({children}) {
 
     function accBooking(status, id) {
         const temp = dataBooking.map((e) => (
-                e.id == id ? {...e, status: status == "Approve" ? "Approve" : "Reject"} : e
+                e.id == id ? {...e, status: status == "Approved" ? "Approved" : "Rejected"} : e
             ))
         setDataBooking(temp)
         window.api.saveBooking(temp)

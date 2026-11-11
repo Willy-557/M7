@@ -16,7 +16,7 @@ export default function MyBookings() {
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
-                {dataBooking.filter((e) => e.pembuat === userNow.username).map((f) => (
+                {dataBooking.filter((e) => e.pembuat === userNow.username && e.status !== "Approved").map((f) => (
                     <tr>
                         <td>{f.id}</td>
                         <td>{f.program}</td>
