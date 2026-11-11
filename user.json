@@ -11,7 +11,7 @@
     "username": "will",
     "password": "123",
     "role": "Member",
-    "expiryDate": "2026-11-24"
+    "expiryDate": "2022-11-24"
   },
   {
     "id": 3,
@@ -33,5 +33,18 @@
     "password": "123",
     "role": "Member",
     "expiryDate": "2027-11-05"
+  },
+  {
+    "id": 5,
+    "username": "a",
+    "password": "123",
+    "role": "Trainer",
+    "Keahlian": "coding",
+    "jamMulai": "08:46",
+    "jamSelesai": "20:46",
+    "hariKerja": [
+      "Senin",
+      "Minggu"
+    ]
   }
 ]
