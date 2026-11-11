@@ -2,6 +2,7 @@
 import { useContext } from 'react'
 import { Outlet, useNavigate, NavLink } from 'react-router'
 import { AuthContext } from '../Auth'
+import Expired from './Expired'
 
 export default function Member() {
     const {setUserNow, userNow} = useContext(AuthContext)
@@ -28,6 +29,6 @@ export default function Member() {
         </div>
         <p style={{fontSize:'27px', marginLeft:'10px', marginTop:'20px'}}>Welcome, <b>{userNow.username}</b></p>
         <br />
-        <Outlet></Outlet>
+        {expired ? <Expired/> : <Outlet></Outlet>}
     </>)
 }

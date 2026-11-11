@@ -132,7 +132,7 @@ export default function Auth({children}) {
             alert("Trainer belum mengatur jadwal")
             return
         }
-        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking && e.status != "Rejected")
+        const jadwalTrainingUser = dataBooking.filter((e) => (e.pembuat == userNow.username || e.trainer == namaTrainer) && e.hari === hariBooking && e.status != "Rejected")
         const cariProgram = dataProgram.find((e) => e.namaProgram == programTrainer)
 
         const mulai = jamKeMenit(jamBooking)

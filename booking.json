@@ -1,13 +1,24 @@
 [
   {
-    "id": 3,
+    "id": 4,
+    "trainer": "tes",
+    "program": "tidur",
+    "deskripsiProgram": "awdokawdokawd",
+    "hari": "Selasa",
+    "pembuat": "will",
+    "jamMulai": "11:50",
+    "jamSelesai": "12:50",
+    "status": "Approved"
+  },
+  {
+    "id": 5,
     "trainer": "tes",
     "program": "tidur",
     "deskripsiProgram": "awdokawdokawd",
     "hari": "Jumat",
-    "pembuat": "wf",
-    "jamMulai": "11:42",
-    "jamSelesai": "13:42",
+    "pembuat": "will",
+    "jamMulai": "11:50",
+    "jamSelesai": "12:50",
     "status": "Approved"
   }
 ]
