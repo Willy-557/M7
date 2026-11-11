@@ -128,7 +128,7 @@ export default function Auth({children}) {
         const durasiKeMenit = durasiBooking * 60
         
         const cariTrainer = dataUser.find((e) => e.username === namaTrainer)
-        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking)
+        const jadwalTrainingUser = dataBooking.filter((e) => e.pembuat == userNow.username && e.hari === hariBooking && e.status != "Reject")
         const cariProgram = dataProgram.find((e) => e.namaProgram == programTrainer)
 
         const mulai = jamKeMenit(jamBooking)

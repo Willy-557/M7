@@ -8,6 +8,7 @@ export default function BookSession() {
     const [pilihan, setPilihan] = useState("")
     const [hari, setHari] = useState("")
     const [jamTraining, setJamTraining] = useState("")
+    const trainerDipilih = dataUser.find((e) => e.username === pilihan.split(":")[0])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -28,7 +29,6 @@ export default function BookSession() {
             <form className="form-booking" onSubmit={handleSubmit}>
                 <p>Pilih Trainer</p>
                 <select value={pilihan} onChange={(e) => setPilihan(e.target.value)}>
-                    <option value="">testing</option>
                     {dataUser.map((e) => 
                         dataProgram.filter((d) => d.namaPembuatProgram == e.username).map((f) => (
                             <option key={f.id} value={`${f.namaPembuatProgram}:${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
@@ -37,11 +37,9 @@ export default function BookSession() {
                 </select><br /><br />
                 Hari: <br />
                 <select value={hari} onChange={(e) => setHari(e.target.value)}>
-                    {dataUser.filter((e) => e.role === "Trainer").map((e) => 
-                        e.hariKerja.map((f) => (
-                            <option key={f} value={f}>{f}</option>
-                        ))
-                    )}
+                    {trainerDipilih && trainerDipilih.hariKerja.map((f) => (
+                        <option key={f} value={f}>{f}</option>
+                    ))}
                 </select><br /><br />
                 Jam: <br />
                 <input type="time" value={jamTraining} onChange={(e) => setJamTraining(e.target.value)} /> <br />
