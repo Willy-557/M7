@@ -18,7 +18,6 @@ export default function Register() {
             kosong()
             navigate('/')
         }
-        kosong()    
     }
 
     function kosong() {

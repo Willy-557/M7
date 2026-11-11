@@ -110,7 +110,7 @@ export default function Auth({children}) {
     function deletePrograms(id) {
         const program = dataProgram.find((e) => e.id == id)
         const temp = dataProgram.filter((e) => e.id != id)
-        const tempBooking = dataBooking.filter((e) => e.trainer != program.namaPembuatProgram && e.program != program.namaProgram)
+        const tempBooking = dataBooking.filter((e) => e.trainer != program.namaPembuatProgram || e.program != program.namaProgram)
         setDataProgram(temp)
         setDataBooking(tempBooking)
         window.api.saveProgram(temp)

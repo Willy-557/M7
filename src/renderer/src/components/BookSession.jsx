@@ -29,6 +29,7 @@ export default function BookSession() {
             <form className="form-booking" onSubmit={handleSubmit}>
                 <p>Pilih Trainer</p>
                 <select value={pilihan} onChange={(e) => setPilihan(e.target.value)}>
+                    <option value="">Pilih Trainer</option> {/* ben ga error  */}
                     {dataUser.map((e) => 
                         dataProgram.filter((d) => d.namaPembuatProgram == e.username).map((f) => (
                             <option key={f.id} value={`${f.namaPembuatProgram}:${f.namaProgram}`}>{f.namaPembuatProgram} ({f.namaProgram})</option>
@@ -37,6 +38,7 @@ export default function BookSession() {
                 </select><br /><br />
                 Hari: <br />
                 <select value={hari} onChange={(e) => setHari(e.target.value)}>
+                    <option value="">Pilih Hari</option> {/* ben ga error  */}
                     {trainerDipilih && trainerDipilih.hariKerja.map((f) => (
                         <option key={f} value={f}>{f}</option>
                     ))}

@@ -12,6 +12,8 @@ export default function Trainer() {
         navigate('/')
     }
 
+    if (userNow == null) return null
+
     return (<>
         <div style={{display:'flex', backgroundColor:'lightgray', padding: '12px',justifyContent:'space-between', alignItems:'center'}}>
             <div className="kiri" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap: '25px'}}>
