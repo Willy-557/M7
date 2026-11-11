@@ -12,6 +12,8 @@ export default function Member() {
         navigate('/')
     }
 
+    if (userNow == null) return null
+
     const expired = userNow.expiryDate < new Date().toLocaleDateString("en-CA")
 
     return (<>
