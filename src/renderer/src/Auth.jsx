@@ -77,6 +77,7 @@ export default function Auth({children}) {
         const temp = [...dataUser, dataUserBaru]
         setDataUser(temp)
         window.api.save(temp)
+        return true
     }
 
     function simpanJadwalTrainer(id, jamMulai, jamSelesai, hariKerja) {
