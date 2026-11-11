@@ -55,7 +55,7 @@ export default function Auth({children}) {
             return
         }
         
-        const idBaru = dataUser.length > 0 ? dataUser[dataUser.length - 1].id + 1 : 1
+        const idBaru = dataUser.length > 0 ? Number(dataUser[dataUser.length - 1].id) + 1 : 1
         let dataUserBaru = {}
         role == "Member" ? dataUserBaru = {
             "id" : idBaru,
@@ -94,7 +94,7 @@ export default function Auth({children}) {
         if (cari) {
             alert("Nama program harus unik!")
         } else {
-            const idBaru = dataProgram.length > 0 ? dataProgram[dataProgram.length - 1].id + 1 : 1
+            const idBaru = dataProgram.length > 0 ? Number(dataProgram[dataProgram.length - 1].id) + 1 : 1
             const dataProgramBaru = {
                 id: idBaru,
                 namaPembuatProgram: namaTrainer,
@@ -123,7 +123,7 @@ export default function Auth({children}) {
             return
         }
 
-        const idBaru = dataBooking.length > 0 ? dataBooking[dataBooking.length - 1].id + 1 : 1
+        const idBaru = dataBooking.length > 0 ? Number(dataBooking[dataBooking.length - 1].id) + 1 : 1
         const [namaTrainer, programTrainer] = detailBookingan.split(":")
         const durasiKeMenit = durasiBooking * 60
         
