@@ -37,10 +37,10 @@ export default function Register() {
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} 
                     /> <br /><br />
                 Password:
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
                 /> <br /><br />
                 Confirm Password:
-                <input type="text" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} 
+                <input type="password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} 
                 /> <br /><br />
                 Role:
                 <select value={role} onChange={(e) => setRole(e.target.value)}

@@ -39,7 +39,7 @@ export default function Login() {
                     
                     /> <br /><br />
                 Password: <br />
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} 
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} 
                 />
                 <button type="submit">Login</button>
             </form> <br />
